@@ -1,23 +1,27 @@
 void repairTheStreet()
 {
-    repeat(8){
-        if(rightIsClear()){
-            dropBeep();
-            moveForward();
-        }else{
-            moveForward();
-            if(!rightIsClear()){
-                moveForward();    
-            }
-        }
+    //While the Robot is not at the end of the Map
+    while(!(leftIsClear() && !frontIsClear() && !rightIsClear()))
+    {
+        goForwardOrTurn();        
     }
-    dropBeep();
 }
-void dropBeep(){
-    turnRight();
-    moveForward();
-    dropBeeper();
-    turnAround();
-    moveForward();
-    turnRight();
+
+void goForwardOrTurn()
+{
+    if (!rightIsClear() && frontIsClear())
+    {
+        moveForward();
+    }
+    if (rightIsClear())
+    {
+        turnRight();
+        moveForward();
+    }
+    if (!frontIsClear() && !leftIsClear() && !rightIsClear())
+    {
+        dropBeeper();
+        turnAround();
+        moveForward();
+    }    
 }
