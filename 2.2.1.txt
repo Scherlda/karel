@@ -1,5 +1,8 @@
 void increment(){
-    pickBeeper();
-    moveForward();
-    dropBeeper();
+    while(onBeeper())
+    {
+        pickBeeper();
+        moveForward();
+    }    
+    dropBeeper();    
 }
