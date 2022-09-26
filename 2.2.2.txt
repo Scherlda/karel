@@ -1,5 +1,8 @@
 void decrement(){
-    dropBeeper();
-    moveForward();
-    pickBeeper();
+    while(!onBeeper())
+    {
+        dropBeeper();
+        moveForward();
+    }   
+    pickBeeper(); 
 }
